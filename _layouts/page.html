@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{% include nav.html %}
+
+{% if page.background == "grey" or page.background == "gray" %}
+<script>
+document.getElementById("page-top").className="bg-light";
+</script>
+{% endif %}
+
+<div class="container" id="pagecontainer">
+
+  {% if page.title %}
+  <h2>{{ page.title }}</h2>
+  {% endif %}
+
+  {% if page.author %}
+  <p><strong>Author:</strong> {{ page.author }}</p>
+  {% endif %}
+
+  {% if page.date %}
+  <p><strong>Published on:</strong> {{ page.date | date: "%B %d, %Y" }}</p>
+  {% endif %}
+  
+  {% if page.img %}
+  <img class="img-fluid" src="{{ site.baseurl }}/{{ page.img }}" alt="{{ page.title }}">
+  {% endif %}
+<br><br>
+  {{ content }}
+  
+</div>
