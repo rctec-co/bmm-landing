@@ -13,7 +13,7 @@ en: &DEFAULT_EN
   header:
     title: Welcome to Beautiful Minds Medical
     text: 
-    button: About the Intensive Outpatient Program
+    button: Have an Enquiry? 
     buttonlink: "#contact"
 
   services:
@@ -69,8 +69,8 @@ en: &DEFAULT_EN
     end: "Be Part <br> of Our <br> Story!"
 
   about:
-    title: "About Us"
-    text: "our story"
+    title: "About"
+    text: 
     section: about
     body: >
       We’re reaching out to let you know about our Intensive Outpatient Program (IOP) that has been carefully designed to serve the patient’s physical, mental, social, and spiritual needs from the root cause.<br>
