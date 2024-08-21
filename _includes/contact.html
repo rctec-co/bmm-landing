@@ -10,50 +10,164 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <form id="my-form"
+        <form id="my-form" style="color: white;"
           action="https://script.google.com/macros/s/AKfycbxqKUfdlkgUVMF9_pqYDszet4X_2dzzF4Ac4grbQRyVxyt7lJ_aJlYK6URGUXIRFmw/exec"
           novalidate="" method="POST">
           <!--name="sentMessage"-->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input name="name" class="form-control" id="name" type="text"
-                  placeholder="{{ site.data.sitetext[site.locale].contact.name | default: "Name*" }}"
-                  required="required" data-validation-required-message="{{ site.data.sitetext[site.locale].contact.name-validation | default: "Please enter your name." }}">
-                <p class="help-block text-danger"></p>
-              </div>
-              <div class="form-group">
-                <input name="_replyto" class="form-control" id="email" type="email"
-                  placeholder="{{ site.data.sitetext[site.locale].contact.email | default: "Email*" }}"
-                  required="required" data-validation-required-message="{{ site.data.sitetext[site.locale].contact.email-validation | default: "Please enter your email address." }}">
-                <p class="help-block text-danger"></p>
-              </div>
-              <div class="form-group">
-                <input name="phone" class="form-control" id="phone" type="tel"
-                  placeholder="{{ site.data.sitetext[site.locale].contact.phone | default: "Phone Number*" }}"
-                  required="required" data-validation-required-message="{{ site.data.sitetext[site.locale].contact.phone-validation | default: "Please enter your phone number." }}">
-                <p class="help-block text-danger"></p>
-              </div>
+          <div class="form-step" id="step-1">
+            <h3>Professional Referral Source Contact Information</h3>
+            
+            <div class="form-group">
+              <label for="referral-name">What is your name?*</label>
+              <input name="referral-name" class="form-control" id="referral-name" type="text" required>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <textarea name="message" class="form-control" id="message"
-                  placeholder="{{ site.data.sitetext[site.locale].contact.message | default: "Message*" }}"
-                  required="required" data-validation-required-message="{{ site.data.sitetext[site.locale].contact.message-validation | default: "Please enter a message." }}"></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
+          
+            <div class="form-group">
+              <label>Is this your first time referring to Charlie Health?*</label><br>
+              <input type="radio" name="first-time" value="yes" required> Yes
+              <input type="radio" name="first-time" value="no" required> No
             </div>
-            <input type="hidden" name="_subject" id="email-subject"
-              value="{{ site.data.sitetext[site.locale].contact.subject | default: "Contact Form Submission" }}">
-            <div class="clearfix"></div>
-            <div class="col-lg-12 text-center">
-              <div id="success" style="color: green;"></div>
-              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
-                type="submit">{{ site.data.sitetext[site.locale].contact.submit | default: "Send Message" }}</button>
+          
+            <div class="form-group">
+              <label for="state">What state are you in?*</label>
+              <select name="state" class="form-control" id="state" required>
+                <!-- US State dropdown options -->
+              </select>
             </div>
-            <input type="text" name="_gotcha" style="display:none">
-            <input type="hidden" name="_next" value="#" />
+          
+            <div class="form-group">
+              <label for="organization">What is your organization?*</label>
+              <input name="organization" class="form-control" id="organization" type="text" placeholder="e.g., Children's Hospital of Austin" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="role">What is your role? (optional)</label>
+              <input name="role" class="form-control" id="role" type="text">
+            </div>
+          
+            <div class="form-group">
+              <label for="email">What is your email?*</label>
+              <input name="email" class="form-control" id="email" type="email" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="phone">What is your phone number?*</label>
+              <input name="phone" class="form-control" id="phone" type="tel" required>
+            </div>
+          
+            <div class="form-navigation">
+              <button type="button" class="next-btn btn btn-primary">Next</button>
+            </div>
           </div>
+          
+          <div class="form-step" id="step-2" style="display:none;">
+            <h3>Patient Information</h3>
+            
+            <div class="form-group">
+              <label for="patient-name">Patient Name*</label>
+              <input name="patient-name" class="form-control" id="patient-name" type="text" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="patient-city">What city does the patient live in?</label>
+              <input name="patient-city" class="form-control" id="patient-city" type="text">
+            </div>
+          
+            <div class="form-group">
+              <label for="patient-state">What state does the patient live in?*</label>
+              <select name="patient-state" class="form-control" id="patient-state" required>
+                <!-- US State dropdown options -->
+              </select>
+            </div>
+          
+            <div class="form-group">
+              <label for="patient-dob">Patient's DOB (MM-DD-YYYY)*</label>
+              <input name="patient-dob" class="form-control" id="patient-dob" type="date" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="additional-info">Is there anything else you would like us to know about this patient that would help in ensuring a timely admissions process and effective care delivery?</label>
+              <textarea name="additional-info" class="form-control" id="additional-info"></textarea>
+            </div>
+          
+            <div class="form-navigation">
+              <button type="button" class="prev-btn btn btn-secondary">Back</button>
+              <button type="button" class="next-btn btn btn-primary">Next</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step-3" style="display:none;">
+            <h3>Contact Person Info</h3>
+            
+            <div class="form-group">
+              <label for="contact-name">Contact Person Name*</label>
+              <input name="contact-name" class="form-control" id="contact-name" type="text" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="contact-relationship">Contact Relationship to Patient*</label>
+              <input name="contact-relationship" class="form-control" id="contact-relationship" type="text" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="contact-phone">Contact Person's Phone*</label>
+              <input name="contact-phone" class="form-control" id="contact-phone" type="tel" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="contact-email">Contact Person Email (optional)</label>
+              <input name="contact-email" class="form-control" id="contact-email" type="email">
+            </div>
+          
+            <div class="form-group">
+              <label>Would you like to provide your patient's insurance information?*</label><br>
+              <input type="radio" name="provide-insurance" value="yes" id="insurance-yes" required> Yes
+              <input type="radio" name="provide-insurance" value="no" id="insurance-no" required> No
+            </div>
+          
+            <div id="insurance-info" style="display:none;">
+              <div class="form-group">
+                <label for="insurance-carrier">Patient's Insurance Carrier*</label>
+                <input name="insurance-carrier" class="form-control" id="insurance-carrier" type="text">
+              </div>
+          
+              <div class="form-group">
+                <label for="member-id">Patient's Member ID / Medicaid #*</label>
+                <input name="member-id" class="form-control" id="member-id" type="text">
+              </div>
+          
+              <div class="form-group">
+                <label for="group-number">Patient's Group Number</label>
+                <input name="group-number" class="form-control" id="group-number" type="text">
+              </div>
+          
+              <div class="form-group">
+                <label for="insurance-phone">Insurance Phone Number</label>
+                <input name="insurance-phone" class="form-control" id="insurance-phone" type="tel">
+              </div>
+          
+              <div class="form-group">
+                <label for="patient-street">Patient Street</label>
+                <input name="patient-street" class="form-control" id="patient-street" type="text">
+              </div>
+          
+              <div class="form-group">
+                <label for="patient-zip">Patient Zip code</label>
+                <input name="patient-zip" class="form-control" id="patient-zip" type="text">
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="additional-thoughts">Any other additional thoughts, questions, or feedback for the Charlie Health team?</label>
+              <textarea name="additional-thoughts" class="form-control" id="additional-thoughts"></textarea>
+            </div>
+          
+            <div class="form-navigation">
+              <button type="button" class="prev-btn btn btn-secondary">Back</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+          
         </form>
       </div>
     </div>
@@ -76,6 +190,38 @@ form.addEventListener("submit", function(e) {
     document.getElementById('success').innerHTML = 'Message Sent Successfully';
   })
 });
+});
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  let currentStep = 1;
+  const formSteps = document.querySelectorAll(".form-step");
+  
+  document.querySelectorAll(".next-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      formSteps[currentStep - 1].style.display = "none";
+      formSteps[currentStep].style.display = "block";
+      currentStep++;
+    });
+  });
+
+  document.querySelectorAll(".prev-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      formSteps[currentStep - 1].style.display = "none";
+      formSteps[currentStep - 2].style.display = "block";
+      currentStep--;
+    });
+  });
+
+  document.querySelector("#insurance-yes").addEventListener("click", function() {
+    document.getElementById("insurance-info").style.display = "block";
+  });
+
+  document.querySelector("#insurance-no").addEventListener("click", function() {
+    document.getElementById("insurance-info").style.display = "none";
+  });
 });
 
 </script>
