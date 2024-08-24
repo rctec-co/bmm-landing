@@ -85,9 +85,6 @@ en: &DEFAULT_EN
     max-height: 100pxs
     horizontal-scrolling: "" #"yes/no"
     list:
-      - title: "United Healthcare"
-        url: 
-        logo: https://www.charliehealth.com/wp-content/uploads/2023/12/UnitedHealthcare_logo.svg
       - title: "Aetna"
         url: 
         logo: https://www.charliehealth.com/wp-content/uploads/2023/12/Aetna_Logo_ss_Violet_RGB_Coated.svg
@@ -96,16 +93,7 @@ en: &DEFAULT_EN
         logo: https://www.charliehealth.com/wp-content/uploads/2023/12/cigna-3-1.svg
       - title: "Creative Market"
         url: https://github.com/raviriley/agency-jekyll-theme
-        logo: https://www.charliehealth.com/wp-content/uploads/2023/12/Humana_logo.svg
-      - title: "Creative Market"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: https://www.charliehealth.com/wp-content/uploads/2023/12/Humana_logo.svg
-      - title: "Creative Market"
-        url: https://github.com/raviriley/agency-jekyll-theme
         logo: https://www.charliehealth.com/wp-content/uploads/2023/06/blue-cross-logo_white.svg
-      - title: "Creative Market"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: https://www.charliehealth.com/wp-content/uploads/2023/12/Optum_logo_2021.svg
       - title: "Creative Market"
         url: https://github.com/raviriley/agency-jekyll-theme
         logo: https://www.charliehealth.com/wp-content/uploads/2023/12/US-TRICARE-Logo.svg
