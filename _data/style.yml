@@ -15,15 +15,15 @@ fonts_urls:
     - "https://fonts.googleapis.com/css?family=Kaushan+Script"
     - "https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
     - "https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
-    - "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    - "https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&di"
 
 # Set custom fonts
 fonts:
-  - name: "Source Sans 3"
+  - name: "Crete Round"
     for: "heading"
-  - name: "Source Sans 3"
+  - name: "Crete Round"
     for: "script"
-  - name: "Source Sans 3"
+  - name: "Crete Round"
     for: "Source"
-  - name: "Source Sans 3"
+  - name: "Crete Round"
     for: "body"

@@ -13,6 +13,8 @@ en: &DEFAULT_EN
   nav:
     - title: "Home"
       section: services
+    - title: "Refer"
+      section: refer
     - title: "About"
       section: about
     - title: "Contact"

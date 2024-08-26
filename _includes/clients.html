@@ -1,29 +1,102 @@
+<style>
+
+  .section-bg{
+    background-color: #277a0e; /* Sets the background color */
+    
+  }
+/* Ensure section spans the full width */
+.clients-row-container {
+  overflow: hidden; /* Hides overflow content */
+  position: relative; /* Establishes a positioning context */
+  width: 100%;
+  background-color: #277a0e; /* Sets the background color */
+}
+
+.container-fluid,
+.full-width-container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Center the .clients-row in desktop view */
+.clients-row-container {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.clients-row {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally within the row */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  width: max-content; /* Adjust width to fit content */
+  animation: scroll-infinite 20s linear infinite; /* Animation for mobile devices */
+}
+
+.client-logo {
+  flex: 0 0 auto; /* Prevents logos from shrinking or growing */
+  margin-right: 2rem; /* Adds some spacing between logos */
+  height: auto; /* Adjust height to fit the content */
+}
+
+/* Increase the size of the logos */
+.clients-row img {
+  max-height: 200px; /* Increase max-height for larger logos */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) { /* Adjust the max-width value based on your needs */
+  .clients-row {
+    animation: scroll-infinite 24s linear infinite; /* Enables scrolling animation on mobile */
+  }
+
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(100%); /* Start from the right end */
+    }
+    100% {
+      transform: translateX(-100%); /* End at the left end */
+    }
+  }
+}
+
+</style>
+
 <!-- Clients -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-  <section style="background-color: rgb(143, 142, 142);" class="py-5" id="{{ site.data.sitetext[site.locale].clients.section | default: "clients" }}">
-    <div class="container">
-      <div class="row" {% if site.data.sitetext[site.locale].clients.horizontal-scrolling == "yes" %} id="scrolling-clients" {% endif %}>
-	    {% for client in site.data.sitetext[site.locale].clients.list %}
-        <div class="col-md-3 col-sm-6">
-          <a href="{{ client.url }}">
-            <img class="img-fluid d-block mx-auto" src="{{ client.logo }}" alt="{{ client.title }}" style="max-height: {{ site.data.sitetext[site.locale].clients.max-height | default: "100px" }}">
-          </a>
+  <section class="section-bg py-5" id="{{ site.data.sitetext[site.locale].clients.section | default: "clients" }}">
+    <div class="container-fluid">
+      <div class="clients-row-container">
+        <div class="clients-row" {% if site.data.sitetext[site.locale].clients.horizontal-scrolling == "yes" %} id="scrolling-clients" {% endif %}>
+          {% for client in site.data.sitetext[site.locale].clients.list %}
+          <div class="client-logo">
+            <a href="{{ client.url }}">
+              <img class="img-fluid d-block mx-auto" src="{{ client.logo }}" alt="{{ client.title }}" style="max-height: {{ site.data.sitetext[site.locale].clients.max-height | default: "100px" }}">
+            </a>
+          </div>
+          {% endfor %}
         </div>
-	    {% endfor %}
       </div>
     </div>
   </section>
 {% else %}
 <section class="py-5" id="{{ site.data.sitetext.clients.section | default: "clients" }}">
   <div class="container">
-    <div class="row" {% if site.data.sitetext.clients.horizontal-scrolling == "yes" %} id="scrolling-clients" {% endif %}>
-    {% for client in site.data.sitetext.clients.list %}
-      <div class="col-md- col-sm-6">
-        <a href="{{ client.url }}">
-          <img class="img-fluid d-block mx-auto" src="{{ client.logo }}" alt="{{ client.title }}" style="max-height: {{ site.data.sitetext.clients.max-height | default: "100px" }}">
-        </a>
+    <div class="clients-row-container">
+      <div class="clients-row" {% if site.data.sitetext.clients.horizontal-scrolling == "yes" %} id="scrolling-clients" {% endif %}>
+        {% for client in site.data.sitetext.clients.list %}
+        <div class="client-logo">
+          <a href="{{ client.url }}">
+            <img class="img-fluid d-block mx-auto" src="{{ client.logo }}" alt="{{ client.title }}" style="max-height: {{ site.data.sitetext.clients.max-height | default: "100px" }}">
+          </a>
+        </div>
+        {% endfor %}
       </div>
-    {% endfor %}
     </div>
   </div>
 </section>
