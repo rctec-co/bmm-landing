@@ -1,7 +1,7 @@
 <style>
 
   .section-bg{
-    background-color: #277a0e; /* Sets the background color */
+    background-color: #64a351; /* Sets the background color */
     
   }
 /* Ensure section spans the full width */
@@ -9,7 +9,7 @@
   overflow: hidden; /* Hides overflow content */
   position: relative; /* Establishes a positioning context */
   width: 100%;
-  background-color: #277a0e; /* Sets the background color */
+  background-color: #64a351; /* Sets the background color */
 }
 
 .container-fluid,
@@ -80,8 +80,18 @@
             </a>
           </div>
           {% endfor %}
+
         </div>
+
       </div>
+      <br>
+      <div class="clients-row-container">
+        <div class="clients-row" {% if site.data.sitetext[site.locale].clients.horizontal-scrolling == "yes" %} id="scrolling-clients" {% endif %}>
+        <h5 style="color: white;">We’re proud to accept many major insurance providers, including commercial and Medicaid
+
+        </h5>  
+        </div>
+          </div>
     </div>
   </section>
 {% else %}

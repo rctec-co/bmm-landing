@@ -1,3 +1,16 @@
+  <style>
+    @media (min-width: 768px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+  </style>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: white;">
     <div class="container">
@@ -5,6 +18,10 @@
             <img height="{{ site.logo.height | default: 52 }}" src="{{ site.logo.path }}"/>
         
       </a>
+                <a style="color: #64a351; font-weight: bolder;" class="hide-desktop nav-link js-scroll-trigger" href="tel:5308898780"> <i class="fa fa-phone fa-rotate-90" aria-hidden="true"></i>
+
+
+            5308898780</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -29,19 +46,28 @@
           {%- if link.url -%}
             <a class="nav-link js-scroll-trigger" href="{{ link.url }}">{{ link.title }}</a>
           {%- elsif link.section -%}
-            <a class="nav-link js-scroll-trigger" href="#{{ link.section }}">{{ link.title }}</a>
+            <a  href="#{{ link.section }}">{{ link.title }}</a>
           {%- else -%}
             <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
           {%- endif -%}
         </li>
         {% endfor %}
         {% endif %}
+        <li class="nav-item">
+          <a style="color: #64a351; font-weight: bolder;" class="hide-mobile nav-link js-scroll-trigger" href="tel:5308898780"> <i class="fa fa-phone fa-rotate-90" aria-hidden="true"></i>
+
+
+            5308898780</a>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- End Navigation -->
-  
+  <a style="color: #64a351; font-weight: bolder;" class="nav-link js-scroll-trigger" href="tel:5308898780"> <i class="fa fa-phone fa-rotate-90" aria-hidden="true"></i>
+
+
+    5308898780</a>
   <!-- Header -->
   {% if site.locale and site.locale != "" and site.locale != nil %}
   <header class="masthead">
@@ -54,7 +80,7 @@
         <div class="intro-heading text-uppercase">{{ site.data.sitetext[site.locale].header.text | markdownify }}</div>
 	  {%- endif -%}
 	  {%- if site.data.sitetext[site.locale].header.button -%}
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">{{ site.data.sitetext[site.locale].header.button }}</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">{{ site.data.sitetext[site.locale].header.button }}</a>
 	  {%- endif -%}
       </div>
     </div>
