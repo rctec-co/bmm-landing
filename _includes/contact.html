@@ -213,33 +213,70 @@
 
           <div class="form-step" id="step-3" style="display:none;">
             <h3>Contact Person Info</h3>
-            
-            <div class="form-group">
-              <label for="contact-name">Contact Person Name*</label>
-              <input name="contact-name" class="form-control" id="contact-name" type="text" required>
-            </div>
           
             <div class="form-group">
-              <label for="contact-relationship">Contact Relationship to Patient*</label>
-              <input name="contact-relationship" class="form-control" id="contact-relationship" type="text" required>
+              <label for="contact-type">Whose contact information are you providing?*</label><br>
+              <input type="radio" name="contact-type" value="patient" id="contact-patient" required> Patient
+              <input type="radio" name="contact-type" value="guardian" id="contact-guardian" required> Guardian
             </div>
           
+            <!-- If Patient is selected -->
+            <div id="patient-info" style="display:none;">
+              <div class="form-group">
+                <label for="patient-phone">Patient's Phone*</label>
+                <input name="patient-phone" class="form-control" id="patient-phone" type="tel" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="patient-email">Patient's Email (optional)</label>
+                <input name="patient-email" class="form-control" id="patient-email" type="email">
+              </div>
+            </div>
+          
+            <!-- If Guardian is selected -->
+            <div id="guardian-info" style="display:none;">
+              <div class="form-group">
+                <label for="guardian-first-name">Guardian's First Name*</label>
+                <input name="guardian-first-name" class="form-control" id="guardian-first-name" type="text" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="guardian-last-name">Guardian's Last Name*</label>
+                <input name="guardian-last-name" class="form-control" id="guardian-last-name" type="text" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="guardian-relationship">Guardian Relationship to Patient*</label>
+                <input name="guardian-relationship" class="form-control" id="guardian-relationship" type="text" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="guardian-phone">Guardian's Phone*</label>
+                <input name="guardian-phone" class="form-control" id="guardian-phone" type="tel" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="guardian-email">Guardian's Email (optional)</label>
+                <input name="guardian-email" class="form-control" id="guardian-email" type="email">
+              </div>
+            </div>
+          
+            <!-- Who should Charlie Health reach out to? -->
             <div class="form-group">
-              <label for="contact-phone">Contact Person's Phone*</label>
-              <input name="contact-phone" class="form-control" id="contact-phone" type="tel" required>
+              <label>Who should Charlie Health reach out to?*</label><br>
+              <input type="checkbox" id="reach-referent" name="reach-out" value="referent"> Referent (me)
+              <input type="checkbox" id="reach-client" name="reach-out" value="client"> Client
+              <input type="checkbox" id="reach-both" name="reach-out" value="both"> Both Referent and Client
             </div>
           
-            <div class="form-group">
-              <label for="contact-email">Contact Person Email (optional)</label>
-              <input name="contact-email" class="form-control" id="contact-email" type="email">
-            </div>
-          
+            <!-- Would you like to provide your patient's insurance information? -->
             <div class="form-group">
               <label>Would you like to provide your patient's insurance information?*</label><br>
               <input type="radio" name="provide-insurance" value="yes" id="insurance-yes" required> Yes
               <input type="radio" name="provide-insurance" value="no" id="insurance-no" required> No
             </div>
           
+            <!-- If Yes is selected -->
             <div id="insurance-info" style="display:none;">
               <div class="form-group">
                 <label for="insurance-carrier">Patient's Insurance Carrier*</label>
@@ -259,6 +296,7 @@
               <div class="form-group">
                 <label for="insurance-phone">Insurance Phone Number</label>
                 <input name="insurance-phone" class="form-control" id="insurance-phone" type="tel">
+                <p class="help-block text-danger">Please enter a valid phone number.</p>
               </div>
           
               <div class="form-group">
@@ -270,19 +308,27 @@
                 <label for="patient-zip">Patient Zip code</label>
                 <input name="patient-zip" class="form-control" id="patient-zip" type="text">
               </div>
+          
+              <div class="form-group">
+                <label for="insurance-file">Upload Insurance File</label>
+                <input name="insurance-file" class="form-control" id="insurance-file" type="file">
+              </div>
             </div>
           
+            <!-- Additional Thoughts, Questions, or Feedback -->
             <div class="form-group">
               <label for="additional-thoughts">Any other additional thoughts, questions, or feedback for the Charlie Health team?</label>
               <textarea name="additional-thoughts" class="form-control" id="additional-thoughts"></textarea>
             </div>
           
             <div class="form-navigation">
-              <div id="success"></div>
               <button type="button" class="prev-btn btn btn-secondary">Back</button>
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </div>
+          
+     
+          
           
         </form>
       </div>
@@ -340,4 +386,21 @@ form.addEventListener("submit", function(e) {
   });
 });
 
+</script>
+
+<script>
+  // Show/Hide patient or guardian fields based on the selected contact type
+  document.querySelectorAll('input[name="contact-type"]').forEach((input) => {
+    input.addEventListener('change', function() {
+      document.getElementById('patient-info').style.display = this.value === 'patient' ? 'block' : 'none';
+      document.getElementById('guardian-info').style.display = this.value === 'guardian' ? 'block' : 'none';
+    });
+  });
+
+  // Show/Hide insurance fields based on whether the user wants to provide insurance information
+  document.querySelectorAll('input[name="provide-insurance"]').forEach((input) => {
+    input.addEventListener('change', function() {
+      document.getElementById('insurance-info').style.display = this.value === 'yes' ? 'block' : 'none';
+    });
+  });
 </script>

@@ -1,7 +1,7 @@
 <!-- About -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-<section class="bg-light  page-section" id="{{ site.data.sitetext[site.locale].about.section | default: "about" }}">
-  <div class="container">
+<section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].about.section | default: "about" }}">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].about.title | default: "About Us" }}</h2>
@@ -11,6 +11,11 @@
     <div class="row">
       <div class="col-lg-8 mx-auto text-left">
         <div class="large text-muted">{{ site.data.sitetext[site.locale].about.body | markdownify }}</div>
+      </div>
+    </div>
+    <div class="row mt-4"> <!-- New row for the button -->
+      <div class="col-lg-12 text-center"> <!-- Center the button -->
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">{{ site.data.sitetext[site.locale].header.button }}</a>
       </div>
     </div>
   </div>
@@ -27,6 +32,11 @@
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
         <div class="large text-muted">{{ site.data.sitetext.about.body | markdownify }}</div>
+      </div>
+    </div>
+    <div class="row mt-4"> <!-- New row for the button -->
+      <div class="col-lg-12 text-center"> <!-- Center the button -->
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ site.data.sitetext.header.buttonlink }}">{{ site.data.sitetext.header.button }}</a>
       </div>
     </div>
   </div>
