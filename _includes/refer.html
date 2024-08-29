@@ -2,12 +2,15 @@
     <div class="container">
       <div class="row">
         <!-- First Column -->
-        <div class="col-md-4">
-          <h2>Why Refer to Beautiful Minds Medical?</h2>
-          {%- if site.data.sitetext[site.locale].header.button -%}
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">{{ site.data.sitetext[site.locale].header.button }}</a>
-        {%- endif -%}
-        </div>
+<!-- First Column -->
+<div style="margin-bottom: 15px;" class="col-md-4 col-sm-12 text-center">
+    <h2>Why Refer to Beautiful Minds Medical?</h2>
+    {% if site.data.sitetext[site.locale].header.button %}
+      <a class="btn btn-primary btn-xl js-scroll-trigger mx-auto" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">
+        {{ site.data.sitetext[site.locale].header.button }}
+      </a>
+    {% endif %}
+  </div>
         <!-- Second Column -->  
         <div class="col-md-8">
           <div class="row">
