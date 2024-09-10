@@ -1,62 +1,66 @@
 <section class="page-section" id="refer">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <!-- First Column -->
 <!-- First Column -->
 <div style="margin-bottom: 15px;" class="col-md-4 col-sm-12 text-center">
     <h2>Why Refer to Beautiful Minds Medical?</h2>
-    {% if site.data.sitetext[site.locale].header.button %}
-      <a class="btn btn-primary btn-xl js-scroll-trigger mx-auto" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">
-        {{ site.data.sitetext[site.locale].header.button }}
-      </a>
-    {% endif %}
+
   </div>
         <!-- Second Column -->  
         <div class="col-md-8">
           <div class="row">
             <div class="col-md-3 col-sm-12 mb-3">
-              <div class="card h-100 custom-border circular">
+              <div class="card h-75 custom-border circular">
                 <div class="card-body">
-                    <h5 class="card-title">No Waitlists</h5>
+                    <h5 class="card-title text-center">Personalized Plan of Care
+                    </h5>
                 </div>
               </div>
             </div>
             <div class="col-md-4 col-sm-12 mb-3">
-              <div class="card h-100 custom-border circular">   
+              <div class="card h-75 custom-border circular">   
                 <div class="card-body">
-                  <h5 class="card-title">Flexible Scheduling</h5>
+                  <h5 class="card-title text-center">Committed Professional Staff
+                  </h5>
                 </div>
               </div>
             </div>
             <div class="col-md-3 col-sm-12 mb-3">
-              <div class="card h-100 custom-border circular">
+              <div class="card h-75 custom-border circular">
                 <div class="card-body">
-                  <h5 class="card-title">Virtual Care</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12 mb-3">
-              <div class="card h-100 custom-border circular">
-                <div class="card-body">
-                  <h5 class="card-title">Industry-Leading Outcomes</h5>
+                  <h5 class="card-title text-center">High Success Rates
+                  </h5>
                 </div>
               </div>
             </div>
             <div class="col-md-4 col-sm-12 mb-3">
-              <div class="card h-100 custom-border circular">
+              <div class="card h-75 custom-border circular">
                 <div class="card-body">
-                  <h5 class="card-title">Insurance Accepted</h5>
+                  <h5 class="card-title text-center">Industry-Leading Outcomes</h5>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-12 mb-3">
-              <div class="card h-100 custom-border circular">
+            <div class="col-md-3 col-sm-12 mb-3">
+              <div class="card h-75 custom-border circular">
                 <div class="card-body">
-                  <h5 class="card-title">Close Collaboration</h5>
+                  <h5 class="card-title text-center">Insurance Accepted</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-12 mb-3">
+              <div class="card h-75 custom-border circular">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Close Collaboration</h5>
                 </div>
               </div>
             </div>
           </div>
+          {% if site.data.sitetext[site.locale].header.button %}
+          <a class="btn btn-primary btn-xl js-scroll-trigger mx-auto" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">
+            {{ site.data.sitetext[site.locale].header.button }}
+          </a>
+        {% endif %}
         </div>
       </div>
     </div>

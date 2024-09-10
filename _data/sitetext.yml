@@ -97,9 +97,6 @@ en: &DEFAULT_EN
       - title: "themeforest"
         url: https://github.com/raviriley/agency-jekyll-theme
         logo: https://www.charliehealth.com/wp-content/uploads/2023/12/Optum_logo_2021.svg
-      - title: "themeforest"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: https://www.charliehealth.com/wp-content/uploads/2023/12/Humana_logo.svg
       - title: "Creative Market"
         url: https://github.com/raviriley/agency-jekyll-theme
         logo: https://www.charliehealth.com/wp-content/uploads/2023/06/blue-cross-logo_white.svg

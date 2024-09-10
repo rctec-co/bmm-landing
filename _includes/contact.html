@@ -17,6 +17,7 @@
           <div class="form-step" id="step-1">
             <h3>Professional Referral Source Contact Information</h3>
             
+            <!-- Name fields -->
             <div class="form-group">
               <label for="referral-first-name">What is your name?*</label>
               <div class="row">
@@ -28,11 +29,43 @@
                 </div>
               </div>
             </div>
-          
+
+            <!-- First time referral -->
             <div class="form-group">
-              <label>Is this your first time referring to Charlie Health?*</label><br>
+              <label>Is this your first time referring to Beautiful Minds Medical?*</label><br>
               <input type="radio" name="first-time" value="yes" required> Yes
               <input type="radio" name="first-time" value="no" required> No
+            </div>
+
+            <!-- Referral maker selection -->
+            <div class="form-group">
+              <label>Who is making Referral?*</label><br>
+              <input type="radio" name="ref-maker" value="Organization" id="ref-organization" required> Organization
+              <input type="radio" name="ref-maker" value="Self" id="ref-self" required> Individual
+            </div>
+
+            <!-- Organization-related fields (hidden by default) -->
+            <div id="organization-fields" style="display:none;">
+              <div class="form-group">
+                <label for="organization">What is your organization?*</label>
+                <input name="organization" class="form-control" id="organization" type="text" placeholder="e.g., Children's Hospital of Austin">
+              </div>
+
+              <div class="form-group">
+                <label for="role">What is your role? (optional)</label>
+                <input name="role" class="form-control" id="role" type="text">
+              </div>
+            </div>
+
+            <!-- Contact details -->
+            <div class="form-group">
+              <label for="email">What is your email?*</label>
+              <input name="email" class="form-control" id="email" type="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">What is your phone number?*</label>
+              <input name="phone" class="form-control" id="phone" type="tel" required>
             </div>
           
             <div class="form-group">
@@ -93,25 +126,8 @@
               
             </div>
           
-            <div class="form-group">
-              <label for="organization">What is your organization?*</label>
-              <input name="organization" class="form-control" id="organization" type="text" placeholder="e.g., Children's Hospital of Austin" required>
-            </div>
           
-            <div class="form-group">
-              <label for="role">What is your role? (optional)</label>
-              <input name="role" class="form-control" id="role" type="text">
-            </div>
-          
-            <div class="form-group">
-              <label for="email">What is your email?*</label>
-              <input name="email" class="form-control" id="email" type="email" required>
-            </div>
-          
-            <div class="form-group">
-              <label for="phone">What is your phone number?*</label>
-              <input name="phone" class="form-control" id="phone" type="tel" required>
-            </div>
+            
           
             <div class="form-navigation">
               <button type="button" class="next-btn btn btn-primary">Next</button>
@@ -263,7 +279,7 @@
           
             <!-- Who should Charlie Health reach out to? -->
             <div class="form-group">
-              <label>Who should Charlie Health reach out to?*</label><br>
+              <label>Who should Beautiful Minds Medical reach out to?*</label><br>
               <input type="checkbox" id="reach-referent" name="reach-out" value="referent"> Referent (me)
               <input type="checkbox" id="reach-client" name="reach-out" value="client"> Client
               <input type="checkbox" id="reach-both" name="reach-out" value="both"> Both Referent and Client
@@ -316,7 +332,7 @@
           
             <!-- Additional Thoughts, Questions, or Feedback -->
             <div class="form-group">
-              <label for="additional-thoughts">Any other additional thoughts, questions, or feedback for the Charlie Health team?</label>
+              <label for="additional-thoughts">Any other additional thoughts, questions, or feedback for the Beautiful Minds Medical team?</label>
               <textarea name="additional-thoughts" class="form-control" id="additional-thoughts"></textarea>
             </div>
             <div id="success"></div>
@@ -402,5 +418,31 @@ form.addEventListener("submit", function(e) {
     input.addEventListener('change', function() {
       document.getElementById('insurance-info').style.display = this.value === 'yes' ? 'block' : 'none';
     });
+  });
+</script>
+
+<!-- JavaScript for conditional display of organization fields -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get references to radio buttons and organization fields
+    const refOrganization = document.getElementById('ref-organization');
+    const refSelf = document.getElementById('ref-self');
+    const organizationFields = document.getElementById('organization-fields');
+
+    // Function to toggle organization fields based on selection
+    function toggleOrganizationFields() {
+      if (refOrganization.checked) {
+        organizationFields.style.display = 'block';
+      } else {
+        organizationFields.style.display = 'none';
+      }
+    }
+
+    // Add event listeners to the radio buttons
+    refOrganization.addEventListener('change', toggleOrganizationFields);
+    refSelf.addEventListener('change', toggleOrganizationFields);
+
+    // Initialize the visibility of organization fields
+    toggleOrganizationFields();
   });
 </script>
